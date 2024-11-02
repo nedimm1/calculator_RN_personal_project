@@ -2,19 +2,17 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import CalculatorScreen from './screens/CalculatorScreen';
 
-const App = () => {
+export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <CalculatorScreen />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#202020',
   },
 });
-
-export default App;
