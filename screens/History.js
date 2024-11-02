@@ -6,9 +6,11 @@ export default function History({ equations, sEquations }) {
     <View style={styles.container}>
       <Text style={styles.title}>History</Text>
       {equations.map((equation, index) => (
-        <Text key={index} style={styles.equation}>
-          {equation}
-        </Text>
+        <View key={index} style={styles.equationContainer}>
+          <Text style={styles.equation}>
+            {equation}
+          </Text>
+        </View>
       ))}
     </View>
   );
@@ -16,18 +18,29 @@ export default function History({ equations, sEquations }) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    backgroundColor: '#f8f9fa',
-    borderRadius: 8,
+    flex: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    margin: 16,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
+    color: '#f0f0f0', // Light color for better contrast
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  equationContainer: {
+    borderWidth: 1,
+    borderColor: '#ffffff', // White border around the equation
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 6,
+    alignItems: 'center', // Center the content horizontally
   },
   equation: {
-    fontSize: 16,
-    color: '#333',
-    marginBottom: 4,
+    fontSize: 18,
+    color: '#d1d1d1', // Softer color for the text
+    textAlign: 'center', // Center the text within the container
   },
 });
