@@ -1,11 +1,14 @@
-import React from 'react';
+import {useState} from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import CalculatorScreen from './screens/CalculatorScreen';
+import History from './screens/History';
 
 export default function App() {
+  const [historyActive, sHistoryActive] = useState(false)
+
   return (
     <SafeAreaView style={styles.container}>
-      <CalculatorScreen />
+      {historyActive ? <History /> :  <CalculatorScreen sHistoryActive={sHistoryActive}/>}
     </SafeAreaView>
   );
 }

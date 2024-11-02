@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, Alert } from 'react-native';
 
-const HistoryIcon = ({image}) => {
+const HistoryIcon = ({sHistoryActive}) => {
   const handlePress = () => {
-    Alert.alert("Image Pressed!", "You pressed the image.");
+    sHistoryActive(true)
   };
 
   return (

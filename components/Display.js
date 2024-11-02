@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import HistoryIcon from './HistoryIcon';
 
-function Display({value}) {
+function Display({value, sHistoryActive}) {
     return (
       <View style={styles.displayContainer}>
-         <HistoryIcon />
+         <HistoryIcon sHistoryActive={sHistoryActive}/>
         <Text style={styles.displayText}>{value}</Text>
       </View>
     );

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Display from '../components/Display';
 import ButtonGrid from '../components/ButtonGrid';
 
-export default function CalculatorScreen() {
+export default function CalculatorScreen({sHistoryActive}) {
     const [nums, sNums] = useState([])
     const [equations, sEquations] = useState([])
 
@@ -26,7 +26,7 @@ export default function CalculatorScreen() {
 
     return (
       <View style={styles.container}>
-        <Display value={nums}/>
+        <Display value={nums} sHistoryActive={sHistoryActive}/>
         <ButtonGrid onAdd={addNums} onClear={clear} onCalculate={calculate}/>
       </View>
     );
