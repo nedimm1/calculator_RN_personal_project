@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-function Display() {
+function Display({value}) {
     return (
       <View style={styles.displayContainer}>
-        <Text style={styles.displayText}>0</Text>
+        <Text style={styles.displayText}>{value}</Text>
       </View>
     );
   }

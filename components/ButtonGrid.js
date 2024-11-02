@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import Button from './Button';
 
-export default function ButtonGrid() {
+export default function ButtonGrid({onAdd}) {
     const isSpecialButton = (label) => ['C', '%', '÷', '×', '-', '+', '='].includes(label);
   
     return (
@@ -17,6 +17,7 @@ export default function ButtonGrid() {
           <View key={rowIndex} style={styles.buttonRow}>
             {row.map((label) => (
               <TouchableOpacity
+                onPress={() => onAdd(label)}
                 key={label}
                 style={[
                   styles.button,
