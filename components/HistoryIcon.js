@@ -1,17 +1,17 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Alert } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 
-const HistoryIcon = ({sHistoryActive}) => {
+const HistoryIcon = ({ sHistoryActive }) => {
   const handlePress = () => {
-    sHistoryActive(true)
+    sHistoryActive(true);
   };
 
   return (
-    <View>
+    <View style={{ position: 'absolute', top: 10, left: 10 }}>
       <TouchableOpacity onPress={handlePress}>
         <Image
-        source={"/Users/muhamedmuminovic/Desktop/calculator-1/pictures/historyIcon2.png"}
-          style={{ width: 200, height: 200 }} 
+          source={require('/Users/muhamedmuminovic/Desktop/calculator-1/pictures/historyIcon2.png')}
+          style={{ width: 50, height: 50 }} // Slightly larger size
         />
       </TouchableOpacity>
     </View>
