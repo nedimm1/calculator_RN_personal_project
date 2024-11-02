@@ -1,14 +1,23 @@
-import {useState} from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import CalculatorScreen from './screens/CalculatorScreen';
-import History from './screens/History';
+import { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import CalculatorScreen from "./screens/CalculatorScreen";
+import History from "./screens/History";
 
 export default function App() {
-  const [historyActive, sHistoryActive] = useState(false)
+  const [historyActive, sHistoryActive] = useState(false);
+  const [equations, sEquations] = useState([]);
 
   return (
     <SafeAreaView style={styles.container}>
-      {historyActive ? <History /> :  <CalculatorScreen sHistoryActive={sHistoryActive}/>}
+      {historyActive ? (
+        <History equations={equations} sEquations={sEquations} />
+      ) : (
+        <CalculatorScreen
+          sHistoryActive={sHistoryActive}
+          equations={equations}
+          sEquations={sEquations}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -16,6 +25,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#202020',
+    backgroundColor: "#202020",
   },
 });

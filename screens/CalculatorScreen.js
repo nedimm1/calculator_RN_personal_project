@@ -3,9 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import Display from '../components/Display';
 import ButtonGrid from '../components/ButtonGrid';
 
-export default function CalculatorScreen({sHistoryActive}) {
+export default function CalculatorScreen({sHistoryActive, equations, sEquations}) {
     const [nums, sNums] = useState([])
-    const [equations, sEquations] = useState([])
 
     function addNums(newNum){
        sNums(prevNum => [...prevNum, newNum])
