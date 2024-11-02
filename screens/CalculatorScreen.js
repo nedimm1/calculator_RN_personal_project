@@ -5,6 +5,7 @@ import ButtonGrid from '../components/ButtonGrid';
 
 export default function CalculatorScreen() {
     const [nums, sNums] = useState([])
+    const [equations, sEquations] = useState([])
 
     function addNums(newNum){
        sNums(prevNum => [...prevNum, newNum])
@@ -19,6 +20,8 @@ export default function CalculatorScreen() {
         const numsString = nums.join("")
         const numsCalculated = eval(numsString)
         sNums([numsCalculated])
+        sEquations(prevEquations => [...prevEquations, numsString + ` = ${numsCalculated}`])
+        console.log(equations)
     }
 
     return (
