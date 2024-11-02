@@ -3,8 +3,8 @@ import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 export default function ButtonGrid({ onAdd, onClear, onCalculate }) {
   const isSpecialButton = (label) => ['%', '/', '×', '-', '+', '(', ")"].includes(label);
-  const isClearButton = (label) => ['C'].includes(label);
-  const isEqualButton = (label) => ['='].includes(label);
+  const isClearButton = (label) => label === 'C';
+  const isEqualButton = (label) => label === '=';
 
   const handlePress = (label) => {
     if (isClearButton(label)) {
@@ -28,15 +28,20 @@ export default function ButtonGrid({ onAdd, onClear, onCalculate }) {
         <View key={rowIndex} style={styles.buttonRow}>
           {row.map((label) => (
             <TouchableOpacity
-              onPress={() => handlePress(label)} // Call handlePress with the label
+              onPress={() => handlePress(label)}
               key={label}
               style={[
                 styles.button,
                 label === '0' ? styles.zeroButton : null,
                 isSpecialButton(label) ? styles.operatorButton : null,
+                isClearButton(label) ? styles.clearButton : null,
+                isEqualButton(label) ? styles.equalButton : null,
               ]}
             >
-              <Text style={[styles.buttonText, isSpecialButton(label) ? styles.operatorText : null]}>{label}</Text>
+              <Text style={[
+                styles.buttonText, 
+                isSpecialButton(label) ? styles.operatorText : null
+              ]}>{label}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -58,24 +63,30 @@ const styles = StyleSheet.create({
   button: {
     width: 70,
     height: 70,
-    backgroundColor: '#444444', // Default button color
+    backgroundColor: '#444444',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 35,
     marginHorizontal: 5,
   },
   zeroButton: {
-    width: 150, // Double width for zero button
+    width: 150,
     justifyContent: 'center',
   },
   buttonText: {
     fontSize: 24,
-    color: '#ffffff', // Default text color
+    color: '#ffffff',
   },
   operatorButton: {
-    backgroundColor: '#FFA500', // Orange background for operators and special buttons (C, %)
+    backgroundColor: '#FFA500',
   },
   operatorText: {
-    color: '#ffffff', // White text for operators and special buttons
+    color: '#ffffff',
+  },
+  clearButton: {
+    backgroundColor: 'red',
+  },
+  equalButton: {
+    backgroundColor: 'green',
   },
 });
