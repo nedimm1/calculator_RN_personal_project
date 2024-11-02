@@ -10,7 +10,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       {historyActive ? (
-        <History equations={equations} sEquations={sEquations} />
+        <History equations={equations} sEquations={sEquations} sHistoryActive={sHistoryActive}/>
       ) : (
         <CalculatorScreen
           sHistoryActive={sHistoryActive}
