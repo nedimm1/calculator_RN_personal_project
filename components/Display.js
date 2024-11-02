@@ -1,9 +1,10 @@
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import HistoryIcon from './HistoryIcon';
 
 function Display({value}) {
     return (
       <View style={styles.displayContainer}>
+         <HistoryIcon />
         <Text style={styles.displayText}>{value}</Text>
       </View>
     );
