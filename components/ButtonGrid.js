@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 export default function ButtonGrid({ onAdd, onClear, onCalculate }) {
-  const isSpecialButton = (label) => ['%', '÷', '×', '-', '+'].includes(label);
+  const isSpecialButton = (label) => ['%', '/', '×', '-', '+', '(', ")"].includes(label);
   const isClearButton = (label) => ['C'].includes(label);
   const isEqualButton = (label) => ['='].includes(label);
 
@@ -19,7 +19,7 @@ export default function ButtonGrid({ onAdd, onClear, onCalculate }) {
   return (
     <View style={styles.buttonContainer}>
       {[
-        ['C', '%', '÷'],
+        ['C', '(', ")", '/'],
         ['7', '8', '9', '×'],
         ['4', '5', '6', '-'],
         ['1', '2', '3', '+'],
