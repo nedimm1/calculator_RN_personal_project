@@ -11,10 +11,20 @@ export default function CalculatorScreen() {
        console.log(nums)
     }
 
+    function clear(){
+        sNums([])
+    }
+
+    function calculate(){
+        const numsString = nums.join("")
+        const numsCalculated = eval(numsString)
+        sNums([numsCalculated])
+    }
+
     return (
       <View style={styles.container}>
-        <Display value={nums.join('')}/>
-        <ButtonGrid onAdd={addNums}/>
+        <Display value={nums}/>
+        <ButtonGrid onAdd={addNums} onClear={clear} onCalculate={calculate}/>
       </View>
     );
   }
